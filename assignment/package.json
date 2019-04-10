@@ -1,0 +1,25 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "HW8",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sumit",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^7.3.6",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "https": "^1.0.0",
+    "jquery": "^3.3.1",
+    "nodemon": "^1.18.10",
+    "popper.js": "^1.14.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "rxjs-compat": "^6.4.0"
+  }
+}

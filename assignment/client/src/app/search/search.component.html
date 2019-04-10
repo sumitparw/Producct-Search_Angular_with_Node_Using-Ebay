@@ -1,0 +1,113 @@
+
+
+<div class="container border rounded search_container text-white bg-dark" id="product_searchbox" ng-app="search_app" ng-controller="SearchComponent">
+  <div class="row d-flex justify-content-center"><h5>Product Search</h5></div>
+  <form  (ngSubmit) = "getEventsDet(searchKeywordForm)" [formGroup]="searchKeywordForm">
+    <input type="hidden" name="zip" id="zip" formControlName="zip" >
+    <div class="form-group row panel-body offset-1"  >
+        <label for="searchKeyword" class="control-label col-sm-3 col-form-label">Keyword<span class="asterisk">*</span></label>
+        <div class="col-sm-6 panel-body" [ngClass]="{'is-invalid': searchKeywordForm.get('search_keyword').errors && (searchKeywordForm.get('search_keyword').touched || searchKeywordForm.get('search_keyword').dirty)}">
+          <!-- <mat-form-field> -->
+            <input type="text" name="search_keyword" class="form-control" id="search_keyword"formControlName="search_keyword" placeholder="Enter Product Name(eg. IPhone8)"[ngClass]="{'is-invalid': searchKeywordForm.get('search_keyword').errors && (searchKeywordForm.get('search_keyword').touched || searchKeywordForm.get('search_keyword').dirty)}">
+           <!-- </mat-form-field> -->
+           <span class="help-block" *ngIf="searchKeywordForm.get('search_keyword').errors && searchKeywordForm.get('search_keyword').touched">
+           <span *ngIf="searchKeywordForm.get('search_keyword').errors.required">Please enter a keyword</span>
+           </span>
+        </div>	
+</div>
+
+<div class="form-group row offset-1">
+  <label for="categories list" class="col-sm-3 col-form-label">Category</label>
+  <div class="col-sm-4">
+    <select class="form-control" name="categories_list" id="categories_list" 
+      formControlName="categories_list">
+      <option value="" selected>All Categories</option>
+      <option value="550">Art</option>
+      <option value="2984">Baby</option>
+      <option value="267">Books</option>
+      <option value="11450">Clothing, Shoes & Accessories</option>
+      <option value="58058">Computer/Tablet & Networking</option>
+      <option value="26395">Health & Beauty</option>
+      <option value="11233">Music</option>
+      <option value="1249">Video Games & Console</option>
+    </select>
+  </div>	
+</div>
+
+<div class="form-group row offset-1">
+  <label for="condition" class="col-sm-3 col-form-label">Condition</label>
+  <div class="form-check">
+    <input type="checkbox" name="check1" class="form-check-input" id="check1"formControlName="check1">
+    <label for="new"class="form-check-label"id="ght">New</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" name="check2" class="form-check-input" id="check2"formControlName="check2">
+    <label for="used"class="form-check-label" id="ght">Used</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" name="check3" class="form-check-input" id="check3"formControlName="check3">
+    <label for="unspecified"class="form-check-label"id="ght">Unspecified</label>
+  </div>		
+</div>
+
+<div class="form-group row offset-1">
+  <label for="shippingoption" class="col-sm-3 col-form-label">Shipping Options</label>
+  <div class="form-check">
+    <input type="checkbox" name="shipping1" class="form-check-input" id="shipping1"formControlName="shipping1">
+    <label for="localpickup"class="form-check-label">Local Pickup</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" name="shipping2" class="form-check-input" id="shipping2"formControlName="shipping2">
+    <label for="freeshipping"class="form-check-label">Free Shipping</label>
+  </div>	
+</div>
+
+<div class="form-group row offset-1">
+  <label for="distance" class="col-sm-3 col-form-label">Distance</label>
+  <div class="col-sm-3">
+    <input type="text" name="distance_miles" class="form-control" id="distance_miles"formControlName="distance_miles" value="10">
+  </div>		
+</div>
+
+    <div class="form-group row offset-1">
+        <label for="from_loc" class="col-sm-3 col-form-label">From<span class="asterisk">*</span></label>
+        <div class="form-check col-sm-9">
+        <input class="form-check-input" type="radio" name="from_location" id="here_loc" 
+          value="here" checked  formControlName="from_location" (click)="location_preference('here')">
+          <label class="form-check-label" for="here location">Current Location</label>				
+        </div>
+        <div class="form-check col-sm-9 offset-3">
+          <input class="form-check-input" type="radio" name="from_location" id="custom_loc" 
+          value="custom_loc"  formControlName="from_location" (click)="location_preference('custom_loc')" >
+          <label class="form-check-label" for="other location">Other, Please specify</label>		
+        </div>
+        <div class="form-group col-md-6 offset-3"  [ngClass]="{'is-invalid': searchKeywordForm.get('custom_location').errors && (searchKeywordForm.get('search_keyword').touched ||searchKeywordForm.get('custom_location').dirty)}">
+        <input type="text" value="" pattern="[0-9]{5}" [required]="custom_loc_required"(keydown)="getAutoSuggest($event)" matInput name="custom_location" id="custom_loc" class="form-control col-sm-6" [matAutocomplete]="auto" 
+        formControlName="custom_location"
+        [ngClass]="{'is-invalid': searchKeywordForm.get('custom_location').errors && (searchKeywordForm.get('custom_location').touched || searchKeywordForm.get('custom_location').dirty)}">
+        <span class="help-block" *ngIf="searchKeywordForm.get('custom_location').errors && searchKeywordForm.get('custom_location').touched">
+          <span *ngIf="searchKeywordForm.get('custom_location').errors.required">Please enter a location</span>
+          <span *ngIf="searchKeywordForm.get('custom_location').errors.pattern">Please enter valid location</span>  
+        </span>
+          <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of autoSuggestResp" [value]="option">{{option}}</mat-option>
+          </mat-autocomplete>
+      </div>
+    </div>
+
+    <div class="row offset-1">  
+				<div class="col-auto">
+				  <button type="submit" class="btn btn-primary" [disabled]="searchKeywordForm.invalid" > <i class="material-icons search_icon">
+					search
+					</i> Search</button>
+				</div>
+				<div class="col-auto">
+				  <button type="button" class="btn btn-light clear_button" (click)="resetForm()"><i class="material-icons clear_icon">
+					clear_all
+					</i> Clear</button>
+				</div>
+			</div>
+
+  </form>
+</div>
+<!-- {{searchKeywordForm.value | json }} -->

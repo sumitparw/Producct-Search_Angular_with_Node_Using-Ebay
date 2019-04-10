@@ -1,0 +1,125 @@
+
+.clearfix, .cards_upcoming_info {
+    margin-bottom: 10px;
+}
+
+.popularity {
+    position: relative;
+    top: -37px;
+    left: 15px;
+    /* fill-color: purple; */
+
+}
+
+.artist_img_gog { 
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+    border:5px black solid;
+}
+
+.fav_star {
+    height: 10%;
+}
+.price {
+    color: lightgreen;
+    padding-right: 10px;
+}
+.shipping {
+    color: yellow;
+    padding-right: 10px;
+}
+.days {
+    color: white;
+    padding-right: 10px;
+}
+
+label {
+    padding-right: 10px;
+    margin-bottom: 0px;
+}
+img.hell{
+    width: 10%;
+    height: 10%;
+}
+img {
+    float: left;
+    width: 30%;
+    object-fit: cover;
+    margin-right: 1%;
+    margin-bottom: 0.5em;
+    /* width: 200px; */
+    height: auto !important;
+    vertical-align: middle;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    img {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    img {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* @media only screen and (min-device-width: 400px) {
+    img { 
+        max-width: 100%; 
+    }
+} */
+/* #dark:active:focus{
+    background-color:black; 
+} */
+#close{
+ color:red;
+}
+#check{
+    color:green;
+}
+
+.fb_button {
+    margin-right: 5px;
+}
+
+#fb_img {
+    width: 25px;
+    height: 25px;
+    /* overflow: hidden; */
+}
+
+.clearfix {
+    margin-bottom: 5px;
+}
+
+.card-title, .card-text {
+    margin-bottom: 0px;
+    font-size: 15px;
+    
+}
+
+.highlight_star {
+    color: #F8D33A;
+}
+
+.list_arrow {
+    position: relative;
+    top: 6px;
+}
+.seller{
+    text-align:center;
+}
+.carousel-control-next-icon,.carousel-control-prev-icon{
+    background-color: black;
+    border: 1px solid black;
+}

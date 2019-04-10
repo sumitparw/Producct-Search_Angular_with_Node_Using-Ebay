@@ -1,0 +1,57 @@
+<div class="clearfix"></div>
+<div class="container d-flex justify-content-center">
+     <button type="button" [ngClass]="{'btn-light': !isActiveResButton, 'btn btn-outline-dark active': isActiveResButton }" class="btn result_button" (click)="showResults(isActiveResButton)">Results</button>
+     <button type="button" [ngClass]="{'btn-light': !isActiveFavButton, 'btn btn-outline-dark active': isActiveFavButton}"  class="btn btn-light" (click)="showwishlists(isActiveFavButton)">Wishlist</button>
+</div>
+<div class="container" *ngIf="showwishlistList">
+  <div class="container d-flex flex-row-reverse " *ngIf="showEventsDetails"><button class="btn btn-light p-6" [disabled]="isDetailsEnabled" (click)="saveDetailsState()">Details<i class="material-icons">
+      keyboard_arrow_right
+      </i></button></div>
+    <div class="container text-white"  style="overflow-x:auto;" *ngIf="showEventsDetails">   
+      <div>
+        <table class="table table-striped table-dark"  style="overflow-x:auto;">
+          <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Price</th>
+            <th scope="col">Shipping</th>
+            <th scope="col">Seller</th>
+            <th scope="col">WishList</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of eventDetailsJson; index as ind">
+              <th scope="row">{{ind+1}}</th>
+              <td><img src={{row.image}}></td>
+              <td>{{row.name}}</td>
+              <td>{{row.price}}</td>
+              <td>{{row.shipping}}</td>
+              <td>{{row.seller}}</td>
+              <td> <i class="material-icons wishlist"(click)="deletewishlist(row)">remove_shopping_cart</i></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>Total Shopping</td>
+              <td>${{x}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <!-- </ng-template> -->
+  <!-- <ng-template #noRecords> -->
+
+    <div class="clearfix"></div>
+
+      <div *ngIf="!iswishlists" class="container alert alert-warning" role="alert">
+          No Records Found!
+        </div>
+  <!-- </ng-template> -->
+</div>
+
