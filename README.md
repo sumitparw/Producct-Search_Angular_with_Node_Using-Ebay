@@ -22,9 +22,9 @@ Features
 5. In case the user want to share the product they can do this using Facebook button which calls FB api and share the product with a custom message, user can also write something before sharing.
 6. Product Images are obtained using custom Google Search.
 7. Bootstrap is used to make the website responsive and mobile friendly.
-8.The Similar Products can be sorted based on several categories in ascending or descending order.
-9.Users can directly tweet about the event by just a click of a button.
-10.Custom pipes are used in Angular to truncate sentences when long.
-11.Various icons are used for product ratings,Shipping info, seller feedback.
-12.Clear button resets the application.
+8. The Similar Products can be sorted based on several categories in ascending or descending order.
+9. Users can directly tweet about the event by just a click of a button.
+10. Custom pipes are used in Angular to truncate sentences when long.
+11. Various icons are used for product ratings,Shipping info, seller feedback.
+12. Clear button resets the application.
 13. There are lot of Animations like loading, selection,pagination,Show More which were taken care of.
