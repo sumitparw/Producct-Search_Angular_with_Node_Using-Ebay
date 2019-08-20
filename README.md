@@ -1,4 +1,4 @@
-# Producct-Search_Angular_with_Node_Using-Ebay
+# Product-Search_Angular_with_Node_Using-Ebay
 
 The project is live and deployed on Google Cloud Platform. It can be accessed at the link below: http://productengine.appspot.com/
 
