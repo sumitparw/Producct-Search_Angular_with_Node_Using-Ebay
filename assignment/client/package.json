@@ -33,7 +33,7 @@
     "md-autocomplete": "0.0.1-alpha.1",
     "moment": "^2.24.0",
     "ngx-pagination": "^3.2.1",
-    "npm": "^6.9.0",
+    "npm": "^6.13.4",
     "popper.js": "^1.14.7",
     "promise": "^8.0.3",
     "request": "^2.88.0",
